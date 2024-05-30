@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TextInput } from 'react-native';
-import {Categories} from './components/Categories';
+import Categories from './components/Categories';
 
 export default function App() {
   return (
