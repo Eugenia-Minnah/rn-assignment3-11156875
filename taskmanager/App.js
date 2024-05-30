@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TextInput, FlatList, ScrollView, TouchableOpacity } from 'react-native';
 import Categories from './components/Categories';
 import Task from './components/Task';
@@ -19,8 +18,11 @@ export default function App() {
        
       </View>
       <View style={styles.searchContainer}>
+        <View>
         <Image source={require('./assets/search.png')} style={styles.searchIcon}/>
         <TextInput style={styles.searchbox} placeholder='Search'/>
+        </View>
+        <Image source={require('./assets/menu.png')} style={styles.menu}/>
       </View>
 
       {/*Categories*/}
@@ -81,10 +83,11 @@ const styles = StyleSheet.create({
     paddingHorizontal:10,
     backgroundColor:'#f4f4f5',
     paddingHorizontal:10,
-    //width:320,
+    width:320,
     borderRadius:10,
     backgroundColor:'#ffffff',
     marginBottom:15,
+    
   },
   searchbox:{
     flex:1,
@@ -92,10 +95,21 @@ const styles = StyleSheet.create({
     paddingVertical:10,
     fontSize:18,
     fontWeight:'semibold',
+    marginLeft:15,
+    bottom:6,
+    position:'relative',
+    
   },
   searchIcon:{
     width:20,
     height:20,
+    top:12,
+  },
+  menu:{
+    height:35,
+    width:35,
+    position:'absolute',
+    marginLeft:330,
   },
   section:{
     fontSize:22,
