@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet,Image} from 'react-native'
+
 import React from 'react'
 
 export default function Categories({name,task,image}) {
@@ -35,6 +36,7 @@ const styles = StyleSheet.create({
   categoryImg:{
     width: 120,
     height:120,
+    marginLeft:15,
   },
 
 })

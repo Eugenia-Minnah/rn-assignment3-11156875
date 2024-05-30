@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TextInput, FlatList, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, FlatList, ScrollView, TouchableOpacity } from 'react-native';
 import Categories from './components/Categories';
 import Task from './components/Task';
 import {taskInfo} from './Data/taskInfo'
@@ -10,10 +10,13 @@ export default function App() {
     <View style={styles.container}>
       <View style={styles.title}>
         <View>
-        <Text style={styles.heading}>Hello Devs,</Text>
-        <Text style={styles.subheading}>14 Tasks</Text>
+        <Text style={styles.heading}>Hello, Devs</Text>
+        <Text style={styles.subheading}>14 tasks today</Text>
         </View>
-        <Image source={require('./assets/user.png')} style={styles.profile}/>
+        <TouchableOpacity>
+           <Image source={require('./assets/woman.png')} style={styles.profile}/>
+        </TouchableOpacity>
+       
       </View>
       <View style={styles.searchContainer}>
         <Image source={require('./assets/search.png')} style={styles.searchIcon}/>
@@ -21,13 +24,13 @@ export default function App() {
       </View>
 
       {/*Categories*/}
-      <ScrollView>
+      <ScrollView style={styles.main} showsVerticalScrollIndicator={false}>
       <Text style={styles.section}>Categories</Text>
       <FlatList
        data={categoryInfo}
        renderItem={({item})=> 
        <Categories name={item.name} task={item.task} image={item.image}/>}
-       keyExtractor={item=>item.id}
+       keyExtractor={item => item.id}
        horizontal={true}
        showsHorizontalScrollIndicator={false}
         />
@@ -48,7 +51,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container:{
     flex:1,
-    padding: 10,
+    padding: 20,
     marginTop:30,
     backgroundColor:'#f0f78f'
   },
@@ -62,9 +65,15 @@ const styles = StyleSheet.create({
     fontSize:20,
     fontWeight:'bold',
   },
+  subheading:{
+    color:'gray',
+  },
   profile:{
-    width:30,
-    height:40,
+    width:25,
+    height:25,
+    borderRadius:20,
+    padding:20,
+    backgroundColor:'#ffffff',
   },
   searchContainer:{
     flexDirection:'row',
@@ -72,7 +81,7 @@ const styles = StyleSheet.create({
     paddingHorizontal:10,
     backgroundColor:'#f4f4f5',
     paddingHorizontal:10,
-    width:320,
+    //width:320,
     borderRadius:10,
     backgroundColor:'#ffffff',
     marginBottom:15,
@@ -92,5 +101,8 @@ const styles = StyleSheet.create({
     fontSize:22,
     fontWeight:'500',
   },
+  main:{
+    flex:1,
+  }
 
 });
