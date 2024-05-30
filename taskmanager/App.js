@@ -1,7 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, FlatList, ScrollView } from 'react-native';
 import Categories from './components/Categories';
 import Task from './components/Task';
+import {taskInfo} from './Data/taskInfo'
+import { categoryInfo } from './Data/categoryInfo';
 
 export default function App() {
   return (
@@ -19,11 +21,26 @@ export default function App() {
       </View>
 
       {/*Categories*/}
+      <ScrollView>
       <Text style={styles.section}>Categories</Text>
-      <Categories/>
+      <FlatList
+       data={categoryInfo}
+       renderItem={({item})=> 
+       <Categories name={item.name} task={item.task} image={item.image}/>}
+       keyExtractor={item=>item.id}
+       horizontal={true}
+       showsHorizontalScrollIndicator={false}
+        />
+      
        {/*Ongoing tasks*/}
        <Text style={styles.section}>Ongoing Tasks</Text>
-       <Task/>
+       <FlatList
+       data={taskInfo}
+       renderItem={({item})=> 
+       <Task title={item.title}/>}
+       keyExtractor={item=>item.id}/>
+       </ScrollView>
+       
     </View>
   );
 }

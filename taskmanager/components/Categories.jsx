@@ -1,12 +1,12 @@
 import { View, Text, StyleSheet,Image} from 'react-native'
 import React from 'react'
 
-export default function Categories() {
+export default function Categories({name,task,image}) {
   return (
     <View style={styles.card}>
-      <Text style={styles.title}>Exercise</Text>
-      <Text style={styles.task}>12 Tasks</Text>
-      <Image source={require('../assets/exercise.png')} style={styles.categoryImg}/>
+      <Text style={styles.title}>{name}</Text>
+      <Text style={styles.task}>{task}</Text>
+      <Image source={image} style={styles.categoryImg}/>
     </View>
   )
 }
@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
     width:170,
     height:170,
     marginBottom:20,
+    marginRight:10,
   },
   title:{
     fontSize:16,
