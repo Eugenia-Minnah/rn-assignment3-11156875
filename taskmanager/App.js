@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TextInput } from 'react-native';
 import Categories from './components/Categories';
+import Task from './components/Task';
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
       <Categories/>
        {/*Ongoing tasks*/}
        <Text style={styles.section}>Ongoing Tasks</Text>
+       <Task/>
     </View>
   );
 }
