@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     flex:1,
     padding: 20,
     marginTop:30,
-    backgroundColor:'#f0f78f'
+    backgroundColor: '#f0d62d',
   },
   title:{
     flexDirection:'row',
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     fontWeight:'bold',
   },
   subheading:{
-    color:'gray',
+    color:'black',
   },
   profile:{
     width:25,
