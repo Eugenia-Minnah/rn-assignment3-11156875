@@ -6,7 +6,7 @@ import { categoryInfo } from './Data/categoryInfo';
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <View style={styles.title}>
         <View>
         <Text style={styles.heading}>Hello, Devs</Text>
@@ -20,13 +20,12 @@ export default function App() {
       <View style={styles.searchContainer}>
         <View>
         <Image source={require('./assets/search.png')} style={styles.searchIcon}/>
-        <TextInput style={styles.searchbox} placeholder='Search'/>
+        <TextInput style={styles.searchbox} placeholder={'Search'}/>
         </View>
         <Image source={require('./assets/menu.png')} style={styles.menu}/>
       </View>
 
       {/*Categories*/}
-      <ScrollView style={styles.main} showsVerticalScrollIndicator={false}>
       <Text style={styles.section}>Categories</Text>
       <FlatList
        data={categoryInfo}
@@ -45,8 +44,7 @@ export default function App() {
        <Task title={item.title}/>}
        keyExtractor={item=>item.id}/>
        </ScrollView>
-       
-    </View>
+      
   );
 }
 
@@ -55,7 +53,7 @@ const styles = StyleSheet.create({
     flex:1,
     padding: 20,
     marginTop:30,
-    backgroundColor: '#f0d62d',
+    backgroundColor:'#F7F0E8',
   },
   title:{
     flexDirection:'row',
@@ -85,7 +83,6 @@ const styles = StyleSheet.create({
     paddingHorizontal:10,
     width:320,
     borderRadius:10,
-    backgroundColor:'#ffffff',
     marginBottom:15,
     
   },
@@ -103,7 +100,11 @@ const styles = StyleSheet.create({
   searchIcon:{
     width:20,
     height:20,
-    top:12,
+    top:25,
+  },
+  TextInput:{
+    textcolor: 'black'
+
   },
   menu:{
     height:35,
